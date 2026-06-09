@@ -1,0 +1,20 @@
+name: Simple CI
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check HTML exists
+        run: test -f index.html
+
+      - name: Success
+        run: echo "CI Passed"
